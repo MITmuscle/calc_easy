@@ -12,3 +12,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 /*akasaka*/
+/*山田コメント*/
