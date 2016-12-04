@@ -1,4 +1,29 @@
 <resources>
-    <string name="app_name">calc_easy</string>
+    <string name="app_name">MITmuscle</string>
+    <string name="edit_kg">重量(kg)を入力.</string>
     <string name="sub_name">recommend_set</string>
+
+    <string-array name="Numberlist">
+        <item>1回</item>
+        <item>2回</item>
+        <item>3回</item>
+        <item>4回</item>
+        <item>5回</item>
+        <item>6回</item>
+        <item>7回</item>
+        <item>8回</item>
+        <item>9回</item>
+        <item>10回</item>
+        <item>11回</item>
+        <item>12回</item>
+        <item>13回</item>
+        <item>14回</item>
+        <item>15回</item>
+        <item>16回</item>
+        <item>17回</item>
+        <item>18回</item>
+        <item>19回</item>
+        <item>20回</item>
+    </string-array>
+
 </resources>
