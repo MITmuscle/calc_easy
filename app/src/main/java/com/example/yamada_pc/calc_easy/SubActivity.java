@@ -41,6 +41,11 @@ public class SubActivity extends Activity {
                 double wormUpset3 = weight * 0.7;
                 double mainset = weight * 0.8;
 
+                wormUpset1 = (int)Math.floor(wormUpset1);
+                wormUpset2 = (int)Math.floor(wormUpset2);
+                wormUpset3 = (int)Math.floor(wormUpset3);
+                mainset = (int)Math.floor(mainset);
+
                 wormUpset1_kg.setText(Double.toString(wormUpset1));
                 wormUpset2_kg.setText(Double.toString(wormUpset2));
                 wormUpset3_kg.setText(Double.toString(wormUpset3));
