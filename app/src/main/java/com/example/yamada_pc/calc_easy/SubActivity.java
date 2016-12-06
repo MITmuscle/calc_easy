@@ -36,11 +36,13 @@ public class SubActivity extends Activity {
                 //数値に変換
                 int weight = Integer.parseInt(Max_weight);
 
+                //それぞれの％に合わせて乗算
                 double wormUpset1 = weight * 0.2;
                 double wormUpset2 = weight * 0.55;
                 double wormUpset3 = weight * 0.7;
                 double mainset = weight * 0.8;
 
+                //小数点以下切り上げて整数値に変更
                 wormUpset1 = (int)Math.floor(wormUpset1);
                 wormUpset2 = (int)Math.floor(wormUpset2);
                 wormUpset3 = (int)Math.floor(wormUpset3);
@@ -59,6 +61,15 @@ public class SubActivity extends Activity {
                 mainset1_kg.setVisibility(View.VISIBLE);
                 mainset2_kg.setVisibility(View.VISIBLE);
                 mainset3_kg.setVisibility(View.VISIBLE);
+            }
+        });
+
+        Button btn2 = (Button)findViewById(R.id.back_button);
+        btn2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                finish();
             }
         });
     }
