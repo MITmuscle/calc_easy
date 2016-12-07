@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         final TextView weight_RM3 =(TextView) findViewById(R.id.weight_RM3);
         final TextView weight_RM5 =(TextView) findViewById(R.id.weight_RM5);
         final TextView weight_RM7 =(TextView) findViewById(R.id.weight_RM7);
+        final TextView weight_RM8 =(TextView) findViewById(R.id.weight_RM8);
+        final TextView weight_RM10 =(TextView) findViewById(R.id.weight_RM10);
+        final TextView weight_RM12 =(TextView) findViewById(R.id.weight_RM12);
+        final TextView weight_RM15 =(TextView) findViewById(R.id.weight_RM15);
+        final TextView weight_RM20 =(TextView) findViewById(R.id.weight_RM20);
         final EditText edit = (EditText)findViewById(R.id.edit);
         Button kg_button = (Button) findViewById(R.id.kg_button);
 
@@ -63,6 +68,25 @@ public class MainActivity extends AppCompatActivity {
                 weight_RM7.setText(Double.toString(weight_RM[7]));
                 weight_RM7.setMaxLines(1);
 
+                // 取得したweight_RM8を TextView に張り付ける
+                weight_RM8.setText(Double.toString(weight_RM[8]));
+                weight_RM8.setMaxLines(1);
+
+                // 取得したweight_RM10を TextView に張り付ける
+                weight_RM10.setText(Double.toString(weight_RM[10]));
+                weight_RM10.setMaxLines(1);
+
+                // 取得したweight_RM12を TextView に張り付ける
+                weight_RM12.setText(Double.toString(weight_RM[12]));
+                weight_RM12.setMaxLines(1);
+
+                // 取得したweight_RM15を TextView に張り付ける
+                weight_RM15.setText(Double.toString(weight_RM[15]));
+                weight_RM15.setMaxLines(1);
+
+                // 取得したweight_RM20を TextView に張り付ける
+                weight_RM20.setText(Double.toString(weight_RM[20]));
+                weight_RM20.setMaxLines(1);
             }
         });
 
