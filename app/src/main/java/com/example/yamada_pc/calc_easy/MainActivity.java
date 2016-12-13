@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -42,23 +43,24 @@ public class MainActivity extends AppCompatActivity {
                 // 入力した重量をDouble型に変換
                 Double weight = Double.parseDouble(edit.getText().toString());
                 /*計算式1の場合*/
-                Double MAX_weight = weight * 0.0333 * (RM+1) + weight;
+                int MAX_weight = (int)Math.floor(weight * 0.0333 * (RM+1) + weight);
                 // 取得したMAX_weightを TextView に張り付ける
                 MAX_kg_view.setText(Double.toString(MAX_weight));
                 MAX_kg_view.setMaxLines(1);
 
                 /*計算式1の場合で各回数で推定される重量*/
-                Double weight_RM[] = new Double[21];
+                int weight_RM[] = new int[21];
                 Double j =1.0;
                 for(int i = 1 ; i<=20 ; i++ ){
-                    weight_RM[i]=MAX_weight/(0.0333*i+1);
                     /*weight_RM[i]=MAX_weight*j;
                     j=j-0.027;*/
+                    weight_RM[i]=(int)Math.floor(MAX_weight/(0.0333*i+1));
+
                 }
 
                 // 取得したweight_RM3を TextView に張り付ける
-                weight_RM3.setText(Double.toString(weight_RM[3]));
                 weight_RM3.setMaxLines(1);
+                weight_RM3.setText(Double.toString(weight_RM[3]));
 
                 // 取得したweight_RM5を TextView に張り付ける
                 weight_RM5.setText(Double.toString(weight_RM[5]));
@@ -87,6 +89,16 @@ public class MainActivity extends AppCompatActivity {
                 // 取得したweight_RM20を TextView に張り付ける
                 weight_RM20.setText(Double.toString(weight_RM[20]));
                 weight_RM20.setMaxLines(1);
+            }
+
+        });
+
+        LinearLayout MAX_1RM_button = (LinearLayout) findViewById(R.id.MAX_1RM_button);
+        MAX_1RM_button.setClickable(true);
+        MAX_1RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
             }
         });
 
