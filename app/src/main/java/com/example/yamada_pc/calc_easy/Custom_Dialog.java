@@ -14,7 +14,7 @@ import android.widget.TextView;
  */
 
 public class Custom_Dialog extends DialogFragment {
-    @Overridegit
+    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = new Dialog(getActivity());
         // タイトル非表示
