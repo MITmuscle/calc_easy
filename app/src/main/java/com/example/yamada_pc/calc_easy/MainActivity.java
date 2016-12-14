@@ -218,13 +218,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
         Button trans_btn = (Button)findViewById(R.id.trans_btn);
         trans_btn.setOnClickListener(new View.OnClickListener() {
             @Override
