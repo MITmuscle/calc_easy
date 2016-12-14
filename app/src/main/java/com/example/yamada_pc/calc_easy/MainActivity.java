@@ -1,24 +1,26 @@
 package com.example.yamada_pc.calc_easy;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * Created by akasaka0107 on 2016/12/03.
+  */
+
 public class MainActivity extends AppCompatActivity {
+    /*入力された最大重量となる値*/
+    public static int MAX_weight;
+    /*計算式1の場合で各回数で推定される重量*/
+    public static int weight_RM[] = new int[21];
+
+    public static int select;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 int RM = spinner.getSelectedItemPosition();
                 // 入力した重量をDouble型に変換
                 Double weight = Double.parseDouble(edit.getText().toString());
-                int MAX_weight;
                 /*計算式1の場合*/
                 if(RM==0){
                     MAX_weight = (int)Math.floor(weight);
@@ -64,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                /*計算式1の場合で各回数で推定される重量*/
-                int weight_RM[] = new int[21];
+
                 Double j =1.0;
                 for(int i = 1 ; i<=20 ; i++ ){
                     /*weight_RM[i]=MAX_weight*j;
@@ -114,26 +114,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         LinearLayout MAX_1RM_button = (LinearLayout) findViewById(R.id.MAX_1RM_button);
-        //MAX_1RM_button.setOrientation(LinearLayout.VERTICAL);
         MAX_1RM_button.setClickable(true);
         MAX_1RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Custom_Dialog dialog =new Custom_Dialog();
                 dialog.show(getFragmentManager(),"tag");
+                select=1;
             }
         });
-
-
-
-
 
         LinearLayout MAX_3RM_button = (LinearLayout) findViewById(R.id.MAX_3RM_button);
         MAX_3RM_button.setClickable(true);
         MAX_3RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=3;
             }
         });
 
@@ -142,63 +140,90 @@ public class MainActivity extends AppCompatActivity {
         MAX_5RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=5;
             }
         });
+
 
         LinearLayout MAX_7RM_button = (LinearLayout) findViewById(R.id.MAX_7RM_button);
         MAX_7RM_button.setClickable(true);
         MAX_7RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=7;
             }
         });
+
 
         LinearLayout MAX_8RM_button = (LinearLayout) findViewById(R.id.MAX_8RM_button);
         MAX_8RM_button.setClickable(true);
         MAX_8RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=8;
             }
         });
+
 
         LinearLayout MAX_10RM_button = (LinearLayout) findViewById(R.id.MAX_10RM_button);
         MAX_10RM_button.setClickable(true);
         MAX_10RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=10;
             }
         });
+
 
         LinearLayout MAX_12RM_button = (LinearLayout) findViewById(R.id.MAX_12RM_button);
         MAX_12RM_button.setClickable(true);
         MAX_12RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=12;
             }
         });
+
 
         LinearLayout MAX_15RM_button = (LinearLayout) findViewById(R.id.MAX_15RM_button);
         MAX_15RM_button.setClickable(true);
         MAX_15RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=15;
             }
         });
+
 
         LinearLayout MAX_20RM_button = (LinearLayout) findViewById(R.id.MAX_20RM_button);
         MAX_20RM_button.setClickable(true);
         MAX_20RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=20;
             }
         });
+
+
+
+
+
+
+
 
         Button trans_btn = (Button)findViewById(R.id.trans_btn);
         trans_btn.setOnClickListener(new View.OnClickListener() {

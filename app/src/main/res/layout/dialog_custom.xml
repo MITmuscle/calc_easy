@@ -12,6 +12,7 @@
             android:background="@drawable/bg_dialog"
             android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:weightSum="1"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
@@ -23,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_title"
                 android:padding="10dp"
-                android:text="set menu"
+                android:text="Set menu"
                 android:textSize="18dp"
                 android:textColor="@android:color/white" />
 
@@ -34,9 +35,43 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:lineSpacingExtra="6dp"
-                android:text="MessageMessageMessageMessageMessageMessageMessageMessageMessage"
-                android:textSize="16dp"
-                android:textColor="#333333" />
+                android:text="この重量におけるセット数を決定"
+                android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/setselect_view"
+            android:maxWidth="45dp"
+            android:textSize="16dp"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"
+            android:textSize="16dp"/>
+
+            <Spinner
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:id="@+id/setspinner"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:entries="@array/Setlist"
+                android:spinnerMode="dialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="セット"
+            android:textSize="16dp"/>
+
+        </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,7 +91,7 @@
                     android:layout_width="30dp"
                     android:layout_height="match_parent"/>
 
-                <!-- Close ボタン -->
+                <!-- Cancel ボタン -->
                 <Button
                     android:id="@+id/close_button"
                     android:layout_width="wrap_content"
