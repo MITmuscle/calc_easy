@@ -29,7 +29,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edit"
+                android:id="@+id/edit_kg"
                 android:maxLength="5"
                 android:maxLines="1"
                 android:inputType="numberDecimal"

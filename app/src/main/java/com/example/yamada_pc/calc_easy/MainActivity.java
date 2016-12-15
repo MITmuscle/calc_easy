@@ -3,12 +3,16 @@ package com.example.yamada_pc.calc_easy;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.text.TextWatcher;
+
+import java.security.PublicKey;
 
 /**
  * Created by akasaka0107 on 2016/12/03.
@@ -36,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         final TextView weight_RM12 =(TextView) findViewById(R.id.weight_RM12);
         final TextView weight_RM15 =(TextView) findViewById(R.id.weight_RM15);
         final TextView weight_RM20 =(TextView) findViewById(R.id.weight_RM20);
-        final EditText edit = (EditText)findViewById(R.id.edit);
-        Button kg_button = (Button) findViewById(R.id.kg_button);
+        final EditText edit_kg = (EditText)findViewById(R.id.edit_kg);
+        final Button kg_button = (Button) findViewById(R.id.kg_button);
 
 
         /*入力した重量を表示*/
@@ -49,21 +53,22 @@ public class MainActivity extends AppCompatActivity {
                 // spinnerから回数を取得 ただしRM=0のときが1回である
                 int RM = spinner.getSelectedItemPosition();
                 // 入力した重量をDouble型に変換
-                Double weight = Double.parseDouble(edit.getText().toString());
+                Double weight = Double.parseDouble(edit_kg.getText().toString());
+
                 /*計算式1の場合*/
-                if(RM==0){
-                    MAX_weight = (int)Math.floor(weight);
+                if (RM == 0) {
+                    MAX_weight = (int) Math.floor(weight);
                     // 取得したMAX_weightを TextView に張り付ける
                     MAX_kg_view.setText(Double.toString(MAX_weight));
                     MAX_kg_view.setMaxLines(1);
-                }
-                else {
+                } else {
                     MAX_weight = (int) Math.floor(weight * 0.0333 * (RM + 1) + weight);
                     // 取得したMAX_weightを TextView に張り付ける
                     MAX_kg_view.setText(Double.toString(MAX_weight));
                     MAX_kg_view.setMaxLines(1);
 
                 }
+
 
 
                 Double j =1.0;
@@ -229,5 +234,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
 
+/*やり残したこと
+重量を入力せずに，決定ボタンを押すと終了してしまうこと
+* kg_button.setEnabled(false);
+
+        edit_kg.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //テキスト変更前
+                if(edit_kg.getText().toString().equals("重量を入力")==false){
+                    kg_button.setEnabled(false);
+                }
+                else{
+                    kg_button.setEnabled(true);
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //テキスト変更中
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //テキスト変更後
+                    kg_button.setEnabled(true);
+            }
+        });
+
+* */
