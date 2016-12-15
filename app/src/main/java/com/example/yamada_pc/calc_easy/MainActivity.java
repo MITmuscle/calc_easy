@@ -1,7 +1,6 @@
 package com.example.yamada_pc.calc_easy;
 
 import android.support.v7.app.AppCompatActivity;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,8 +10,21 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.text.TextWatcher;
+
+import java.security.PublicKey;
+
+/**
+ * Created by akasaka0107 on 2016/12/03.
+  */
 
 public class MainActivity extends AppCompatActivity {
+    /*入力された最大重量となる値*/
+    public static int MAX_weight;
+    /*計算式1の場合で各回数で推定される重量*/
+    public static int weight_RM[] = new int[21];
+
+    public static int select;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         final TextView weight_RM12 =(TextView) findViewById(R.id.weight_RM12);
         final TextView weight_RM15 =(TextView) findViewById(R.id.weight_RM15);
         final TextView weight_RM20 =(TextView) findViewById(R.id.weight_RM20);
-        final EditText edit = (EditText)findViewById(R.id.edit);
-        Button kg_button = (Button) findViewById(R.id.kg_button);
+        final EditText edit_kg = (EditText)findViewById(R.id.edit_kg);
+        final Button kg_button = (Button) findViewById(R.id.kg_button);
 
 
         /*入力した重量を表示*/
@@ -38,29 +50,42 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Spinnerオブジェクトを取得
                 Spinner spinner = (Spinner)findViewById(R.id.spinner);
-                // spinnerから回数を取得
+                // spinnerから回数を取得 ただしRM=0のときが1回である
                 int RM = spinner.getSelectedItemPosition();
                 // 入力した重量をDouble型に変換
-                Double weight = Double.parseDouble(edit.getText().toString());
-                /*計算式1の場合*/
-                int MAX_weight = (int)Math.floor(weight * 0.0333 * (RM+1) + weight);
-                // 取得したMAX_weightを TextView に張り付ける
-                MAX_kg_view.setText(Double.toString(MAX_weight));
-                MAX_kg_view.setMaxLines(1);
+                Double weight = Double.parseDouble(edit_kg.getText().toString());
 
-                /*計算式1の場合で各回数で推定される重量*/
-                int weight_RM[] = new int[21];
+                /*計算式1の場合*/
+                if (RM == 0) {
+                    MAX_weight = (int) Math.floor(weight);
+                    // 取得したMAX_weightを TextView に張り付ける
+                    MAX_kg_view.setText(Double.toString(MAX_weight));
+                    MAX_kg_view.setMaxLines(1);
+                } else {
+                    MAX_weight = (int) Math.floor(weight * 0.0333 * (RM + 1) + weight);
+                    // 取得したMAX_weightを TextView に張り付ける
+                    MAX_kg_view.setText(Double.toString(MAX_weight));
+                    MAX_kg_view.setMaxLines(1);
+
+                }
+
+
+
                 Double j =1.0;
                 for(int i = 1 ; i<=20 ; i++ ){
                     /*weight_RM[i]=MAX_weight*j;
                     j=j-0.027;*/
-                    weight_RM[i]=(int)Math.floor(MAX_weight/(0.0333*i+1));
-
+                    if(RM==i-1){
+                        weight_RM[i] = (int) Math.floor(weight);
+                    }
+                    else {
+                        weight_RM[i] = (int) Math.floor(MAX_weight / (0.0333 * i + 1));
+                    }
                 }
 
                 // 取得したweight_RM3を TextView に張り付ける
-                weight_RM3.setMaxLines(1);
                 weight_RM3.setText(Double.toString(weight_RM[3]));
+                weight_RM3.setMaxLines(1);
 
                 // 取得したweight_RM5を TextView に張り付ける
                 weight_RM5.setText(Double.toString(weight_RM[5]));
@@ -97,8 +122,104 @@ public class MainActivity extends AppCompatActivity {
         MAX_1RM_button.setClickable(true);
         MAX_1RM_button.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=1;
+            }
+        });
 
+        LinearLayout MAX_3RM_button = (LinearLayout) findViewById(R.id.MAX_3RM_button);
+        MAX_3RM_button.setClickable(true);
+        MAX_3RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=3;
+            }
+        });
+
+        LinearLayout MAX_5RM_button = (LinearLayout) findViewById(R.id.MAX_5RM_button);
+        MAX_5RM_button.setClickable(true);
+        MAX_5RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=5;
+            }
+        });
+
+
+        LinearLayout MAX_7RM_button = (LinearLayout) findViewById(R.id.MAX_7RM_button);
+        MAX_7RM_button.setClickable(true);
+        MAX_7RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=7;
+            }
+        });
+
+
+        LinearLayout MAX_8RM_button = (LinearLayout) findViewById(R.id.MAX_8RM_button);
+        MAX_8RM_button.setClickable(true);
+        MAX_8RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=8;
+            }
+        });
+
+
+        LinearLayout MAX_10RM_button = (LinearLayout) findViewById(R.id.MAX_10RM_button);
+        MAX_10RM_button.setClickable(true);
+        MAX_10RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=10;
+            }
+        });
+
+
+        LinearLayout MAX_12RM_button = (LinearLayout) findViewById(R.id.MAX_12RM_button);
+        MAX_12RM_button.setClickable(true);
+        MAX_12RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=12;
+            }
+        });
+
+
+        LinearLayout MAX_15RM_button = (LinearLayout) findViewById(R.id.MAX_15RM_button);
+        MAX_15RM_button.setClickable(true);
+        MAX_15RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=15;
+            }
+        });
+
+
+        LinearLayout MAX_20RM_button = (LinearLayout) findViewById(R.id.MAX_20RM_button);
+        MAX_20RM_button.setClickable(true);
+        MAX_20RM_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Custom_Dialog dialog =new Custom_Dialog();
+                dialog.show(getFragmentManager(),"tag");
+                select=20;
             }
         });
 
@@ -113,4 +234,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
+
+/*やり残したこと
+重量を入力せずに，決定ボタンを押すと終了してしまうこと
+* kg_button.setEnabled(false);
+
+        edit_kg.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //テキスト変更前
+                if(edit_kg.getText().toString().equals("重量を入力")==false){
+                    kg_button.setEnabled(false);
+                }
+                else{
+                    kg_button.setEnabled(true);
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //テキスト変更中
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //テキスト変更後
+                    kg_button.setEnabled(true);
+            }
+        });
+
+* */
