@@ -22,6 +22,12 @@
             android:name=".SubActivity"
             android:label="@string/sub_name">
         </activity>
+
+        <activity
+            android:name=".Actscreen"
+            android:label="@string/act_name">
+        </activity>
+
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
                 android:background="@drawable/bg_title"
                 android:padding="10dp"
                 android:text="Set menu"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="@android:color/white" />
 
             <!-- メッセージ -->
@@ -36,28 +36,28 @@
                 android:layout_margin="20dp"
                 android:lineSpacingExtra="6dp"
                 android:text="この重量におけるセット数を決定"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="40dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/setselect_view"
-            android:maxWidth="45dp"
-            android:textSize="16dp"
-            android:layout_width="45dp"
+            android:maxWidth="40dp"
+            android:textSize="16sp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kg"
-            android:textSize="16dp"/>
+            android:text="kg: "
+            android:textSize="16sp"/>
 
             <Spinner
-                android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/setspinner"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -68,10 +68,53 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="セット"
-            android:textSize="16dp"/>
+            android:text="セット × "
+            android:textSize="16sp"/>
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/selectnumber_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回"
+            android:textSize="16sp"/>
+
+
+    </LinearLayout>
+
+            <!-- メッセージ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:lineSpacingExtra="6dp"
+                android:text="ウォームアップセット数を決定"
+                android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/warmsetspinner"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:entries="@array/Warmsetlist"
+            android:spinnerMode="dialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="セット"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

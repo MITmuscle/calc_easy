@@ -1,18 +1,18 @@
 package com.example.yamada_pc.calc_easy;
 
 import android.support.v7.app.AppCompatActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.text.TextWatcher;
-
-import java.security.PublicKey;
 
 /**
  * Created by akasaka0107 on 2016/12/03.
@@ -30,6 +30,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        // Spinnerオブジェクトを取得
+       final Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        /*Spinnerの文字サイズを大きくする*/
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item,
+                getResources().getStringArray(R.array.Numberlist));
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         final TextView MAX_kg_view = (TextView) findViewById(R.id.MAX_kg_view);
         final TextView weight_RM3 =(TextView) findViewById(R.id.weight_RM3);
@@ -43,18 +65,41 @@ public class MainActivity extends AppCompatActivity {
         final EditText edit_kg = (EditText)findViewById(R.id.edit_kg);
         final Button kg_button = (Button) findViewById(R.id.kg_button);
 
+        //重量を入力せずに，決定ボタンを押すとアプリを強制終了してしまうこと防ぐためTextWatcherを使用
+        kg_button.setEnabled(false);
+
+                edit_kg.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        //テキスト変更前
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        //テキスト変更中
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        //テキスト変更後
+                        if(s.toString().equals("重量を入力")==true) {
+                            kg_button.setEnabled(false);
+                        }
+                        else{
+                            kg_button.setEnabled(true);
+                        }
+                    }
+                });
 
         /*入力した重量を表示*/
         kg_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Spinnerオブジェクトを取得
-                Spinner spinner = (Spinner)findViewById(R.id.spinner);
-                // spinnerから回数を取得 ただしRM=0のときが1回である
-                int RM = spinner.getSelectedItemPosition();
+
                 // 入力した重量をDouble型に変換
                 Double weight = Double.parseDouble(edit_kg.getText().toString());
-
+                // spinnerから回数を取得 ただしRM=0のときが1回である
+                int RM = spinner.getSelectedItemPosition();
                 /*計算式1の場合*/
                 if (RM == 0) {
                     MAX_weight = (int) Math.floor(weight);
@@ -69,9 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-
-
-                Double j =1.0;
                 for(int i = 1 ; i<=20 ; i++ ){
                     /*weight_RM[i]=MAX_weight*j;
                     j=j-0.027;*/
@@ -222,48 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 select=20;
             }
         });
-
-        Button trans_btn = (Button)findViewById(R.id.trans_btn);
-        trans_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //sub画面を起動
-                Intent intent = new Intent();
-                intent.setClassName("com.example.yamada_pc.calc_easy","com.example.yamada_pc.calc_easy.SubActivity");
-                startActivity(intent);
-            }
-        });
     }
 
 }
 
-/*やり残したこと
-重量を入力せずに，決定ボタンを押すと終了してしまうこと
-* kg_button.setEnabled(false);
-
-        edit_kg.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //テキスト変更前
-                if(edit_kg.getText().toString().equals("重量を入力")==false){
-                    kg_button.setEnabled(false);
-                }
-                else{
-                    kg_button.setEnabled(true);
-                }
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //テキスト変更中
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                //テキスト変更後
-                    kg_button.setEnabled(true);
-            }
-        });
-
-* */

@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -16,9 +19,10 @@ import android.widget.TextView;
  */
 
 public class Custom_Dialog extends DialogFragment {
+    public static int set,warmset;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = new Dialog(getActivity());
+        final Dialog dialog = new Dialog(getActivity());
         // タイトル非表示
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         // フルスクリーン
@@ -28,33 +32,40 @@ public class Custom_Dialog extends DialogFragment {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         // MainActivityからMAX_weightとweight_RM[]を取得し選択された重量を TextView に張り付ける
+        // またselectから回数を取得
         final TextView setselect_view = (TextView) dialog.findViewById(R.id.setselect_view);
+        final TextView selectnumber_view = (TextView) dialog.findViewById(R.id.selectnumber_view);
         int MAX_weight = MainActivity.MAX_weight;
         int weight_RM[] = MainActivity.weight_RM;
         int select = MainActivity.select;
         for(int i=1 ; i<=21 ; i++){
             if(select==1){
                 setselect_view.setText(Double.toString(MAX_weight));
+                selectnumber_view.setText(Integer.toString(select));
                 setselect_view.setMaxLines(1);
             }
             else if(select==i && select!=1 ){
                 setselect_view.setText(Double.toString(weight_RM[i]));
+                selectnumber_view.setText(Integer.toString(select));
                 setselect_view.setMaxLines(1);
             }
         }
+        // Spinnerオブジェクトを取得
+        final Spinner setspinner = (Spinner) dialog.findViewById(R.id.setspinner);
+        final Spinner warmsetspinner =(Spinner) dialog.findViewById(R.id.warmsetspinner);
+
 
         // OK ボタンのリスナ
         dialog.findViewById(R.id.positive_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*// Spinnerオブジェクトを取得
-                Spinner spinner = (Spinner)findViewById(R.id.setspinner);
-                // spinnerからセット数を取得 ただしset=0のときが1セットである
-                int set = spinner.getSelectedItemPosition();*/
                 //sub画面を起動
                 Intent intent = new Intent();
                 intent.setClassName("com.example.yamada_pc.calc_easy","com.example.yamada_pc.calc_easy.SubActivity");
                 startActivity(intent);
+                // spinnerからセット数とウォームアップセット数を取得 ただしset=0のときが1セットである
+                set = setspinner.getSelectedItemPosition();
+                warmset =warmsetspinner.getSelectedItemPosition();
             }
         });
         // Cancel ボタンのリスナ

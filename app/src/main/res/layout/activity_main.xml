@@ -26,7 +26,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal">
 
             <EditText
                 android:id="@+id/edit_kg"
@@ -40,13 +41,13 @@
 
             <TextView
                 android:text="kg ×"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <Spinner
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner"
                 android:layout_alignParentTop="true"
@@ -58,7 +59,7 @@
 
             <TextView
                 android:text="回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -77,13 +78,14 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="  1回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,22 +93,21 @@
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="30dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/MAX_kg_view"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -119,77 +120,75 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="  3回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.04"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="30dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM3"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
-
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/MAX_5RM_button"
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="  5回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.04"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="30dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM5"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -202,35 +201,35 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="  7回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.04"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="30dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM7"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -243,35 +242,35 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="  8回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_weight="0.04"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="30dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM8"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -285,34 +284,34 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="10回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="36dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM10"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -324,39 +323,38 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="12回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="36dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM12"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
-
 
         </LinearLayout>
 
@@ -365,34 +363,34 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="15回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="36dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM15"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
@@ -404,47 +402,39 @@
             android:clickable="true"
             android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
             android:weightSum="1">
 
             <TextView
                 android:text="20回"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:layout_width="150dp"
-                android:textSize="24dp"
+                android:layout_width="36dp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/weight_RM20"
-                android:maxWidth="70dp"
-                android:textSize="24dp"
-                android:layout_width="70dp"
+                android:maxWidth="52dp"
+                android:textSize="24sp"
+                android:layout_width="52dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <TextView
-                android:text="kg  "
-                android:maxWidth="120dp"
-                android:textSize="24dp"
+                android:text="kg"
+                android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
-
-
-        <Button
-            android:id="@+id/trans_btn"
-            android:text="画面遷移"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

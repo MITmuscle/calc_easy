@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">MITmuscle</string>
+    <string name="app_name">Reps max and sets program</string>
     <string name="edit_kg">重量を入力</string>
-    <string name="sub_name">recommend_set</string>
+    <string name="sub_name">Warm up sets</string>
+    <string name="act_name">Main sets</string>
 
     <string-array name="Numberlist">
         <item>1</item>
@@ -34,6 +35,13 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+    </string-array>>
+
+    <string-array name="Warmsetlist">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>>
 
 </resources>
