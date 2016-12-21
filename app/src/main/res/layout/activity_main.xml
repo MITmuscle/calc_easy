@@ -10,6 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.yamada_pc.calc_easy.MainActivity">
 
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -22,6 +23,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最大重量およびその回数を入力"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,17 +43,18 @@
                 android:inputType="numberDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:hint="@string/edit_kg"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:text="kg ×"
+                android:text="kg"
                 android:textSize="24sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
-            <Spinner
+           <!-- <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner"
@@ -69,9 +77,40 @@
                 android:text="決定"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"/> -->
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:id="@+id/RM_view"
+                android:layout_width="49dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/edit_RM"
+                android:textSize="24sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="1"
+                android:max="20"
+                android:layout_margin="20dp"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="行いたい重量および回数の行をタップ"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:id="@+id/MAX_1RM_button"
@@ -439,5 +478,7 @@
     </LinearLayout>
 
     </ScrollView>
+
+
 
 </RelativeLayout>
